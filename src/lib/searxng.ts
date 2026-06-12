@@ -24,6 +24,11 @@ export const searchSearxng = async (
 ) => {
   const searxngURL = getSearxngURL();
 
+  if (!searxngURL) {
+    console.warn('SearXNG URL is not configured. Returning empty search results.');
+    return { results: [], suggestions: [] };
+  }
+
   const url = new URL(`${searxngURL}/search?format=json`);
   url.searchParams.append('q', query);
 

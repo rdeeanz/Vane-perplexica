@@ -63,7 +63,7 @@ const Page = () => {
       setDiscover(data.blogs);
     } catch (err: any) {
       console.error('Error fetching data:', err.message);
-      toast.error('Error fetching data');
+      toast.error(err.message || 'Error fetching data');
     } finally {
       setLoading(false);
     }
